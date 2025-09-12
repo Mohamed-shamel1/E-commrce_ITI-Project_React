@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className=" sticky-navbar">
+      <header>
         <nav className="bg-white">
           <div className={`transition-all ${isScrolled ? "p-2" : "p-7"}`}>
             <div className="mx-auto max-w-screen-xl sm:px-6 lg:px-8">
@@ -52,8 +52,8 @@ export default function Navbar() {
                   </IconButton>
                   <Link to="/" className="flex items-center">
                     <img
-                      src="/Logo-removebg-preview.png"
-                      alt="EPROVA"
+                      src="/image (4).png"
+                      alt="FASCO"
                       className="w-10 h-10"
                     />
                     <h1
@@ -65,7 +65,7 @@ export default function Navbar() {
                         fontSize: "35px",
                       }}
                     >
-                      EPROVA
+                      FASCO
                     </h1>
                   </Link>
                 </div>
@@ -78,7 +78,7 @@ export default function Navbar() {
                     "Shop",
                     "Checkout",
                     "Orders",
-                    "Sign in",
+                    "Login",
                     "Signup",
                   ].map((item) => (
                     <li key={item}>
@@ -149,7 +149,7 @@ export default function Navbar() {
           <h2 className="text-lg font-semibold mb-4">Menu</h2>
         </div>
         <List>
-          {["Home", "Products", "Shop", "Checkout", "Orders", "Signin", "Signup"].map(
+            {["Home", "Products", "Shop", "Checkout", "Orders", "Login", "Signup"].map(
             (item) => (
               <ListItem
                 button

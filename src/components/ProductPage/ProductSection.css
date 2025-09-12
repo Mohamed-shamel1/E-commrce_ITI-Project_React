@@ -1,0 +1,313 @@
+/* Product Section Styles */
+.product_section {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  gap: 50px;
+  padding: 0 30px;
+  align-items: flex-start;
+}
+.product_images {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+.product_images .thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 76px;
+}
+
+/* START: UPDATED THUMBNAIL CSS */
+.product_images .thumbs .thumb {
+  width: 82px;
+  height: 135px;
+  /* نستخدم min-height لضمان عدم انهيار الارتفاع */
+  min-height: 90px; 
+  flex-shrink: 0; /* لمنع الصورة من التقلص داخل حاوية flex */
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+/* END: UPDATED THUMBNAIL CSS */
+
+.product_images .thumbs .thumb:hover {
+  transform: scale(1.05);
+}
+.thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-width: initial !important; 
+}
+
+.product_images .main_img {
+  flex: 1;
+  height: 600px;
+  background: #ddd;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: initial !important; 
+}
+.product_details {
+  flex: 1.6;
+  max-width: 720px;
+  color: #222;
+}
+.brand {
+  width: 60px;
+  height: 30px;
+  object-fit: contain;
+  object-position: center;
+}
+.product_details h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.rating {
+  color: #f39c12;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+.price_row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.price {
+  font-size: 26px;
+  font-weight: 600;
+}
+.price_row del {
+  color: #777;
+  font-size: 16px;
+  font-weight: 400;
+}
+.sale {
+  background: #e74c3c;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+  margin: 10px 0 16px;
+}
+
+/* Countdown CSS (Correct version) */
+.countdown1 {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 9px 0 15px;
+  background: white;
+}
+.countdown-row{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 12px 0 18px;
+  background: white;
+}
+.countdown-header {
+  font-weight: 600;
+  font-size: 22px;
+  color: #333;
+  text-align: center;
+}
+.timer-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap:25px
+}
+.time-part {
+  text-align: center;
+}
+.time-value {
+  font-family: "Digital-7", monospace, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 1;
+  display: block;
+  margin-bottom: 5px;
+}
+.time-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.stock_text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.stock_bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.stock_bar .fill {
+  height: 100%;
+  background: #e74c3c;
+  transition: width 0.5s ease;
+}
+.section_label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+.sizes,
+.colors,
+.quantity {
+  margin: 16px 0;
+}
+.sizes .chip {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+}
+.sizes .chip.active {
+  border: 2px solid #222;
+  font-weight: 700;
+}
+.colors_row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.color {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+}
+.color.active {
+  border: 3px solid #222;
+}
+.quantity .charr {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.quantity .qty-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quantity button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  line-height: 1;
+}
+.quantity input {
+  width: 56px;
+  height: 34px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  color: #000;
+}
+.buy_btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #c0392b;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+.buy_btn:hover {
+  background: #a93226;
+}
+.extra_info {
+  margin-top: 20px;
+  padding: 30px;
+  background: #fafafa;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.8;
+  border-radius: 10px;
+}
+.extra_info .actions {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+.extra_info .actions span {
+  cursor: pointer;
+  font-weight: 500;
+}
+.extra_info .actions i {
+  margin-right: 8px;
+  color: #555;
+}
+.extra_info .delivery {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.extra_info .delivery i {
+  margin-right: 8px;
+  color: #c0392b;
+}
+.extra_info .payment {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.extra_info .payment img {
+  width: 60px;
+  height: auto;
+}
+.extra_info .guarantee {
+  font-size: 15px;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+@media (max-width: 1024px) {
+  .product_section {
+    flex-direction: column;
+  }
+}

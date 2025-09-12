@@ -111,10 +111,12 @@ const Checkout = () => {
                       id="email"
                       name="email"
                       value={formData.email}
+                      style={{ backgroundColor: "white" }}
                       onChange={handleInputChange}
                       required
                       className="w-full text-black px-4 py-3 border border-gray-300 rounded-md 
              focus:outline-none focus:ring-2 focus:bg-white focus:text-black"
+
                     />
                   </div>
                 </section>
@@ -448,6 +450,7 @@ const Checkout = () => {
                       type="text"
                       placeholder="Discount code"
                       value={discountCode}
+                      style={{ backgroundColor: "white" }}
                       onChange={(e) => setDiscountCode(e.target.value)}
                       className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />

@@ -25,7 +25,7 @@ const HomeNavbar = () => {
     { name: "Shop", path: "/shop" },
     { name: "Checkout", path: "/checkout" },
     { name: "Orders", path: "/orders" },
-    { name: "Sign in", path: "/sign in" },
+    { name: "Login", path: "/login" },
     { name: "Signup", path: "/signup" },
   ];
 

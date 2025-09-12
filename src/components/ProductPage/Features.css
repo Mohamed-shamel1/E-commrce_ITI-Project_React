@@ -1,0 +1,52 @@
+/* src/components/Features/Features.css */
+
+.features {
+  width: 100%;
+  background: #fafafa;
+  padding: 40px 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.features_container {
+  max-width: 1200px; /* لتحديد أقصى عرض مثل التصميم الأصلي */
+  margin: 0 auto; /* للتوسيط */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 0 30px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  /* نزيل الخلفية والـ padding الزائد من هنا */
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  text-align: left; /* نجعله محاذاة لليسار */
+}
+
+.feature:hover {
+  transform: none; /* نزيل تأثير الـ hover */
+}
+
+.feature i {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.feature h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.feature p {
+  font-size: 14px;
+  color: #666;
+}

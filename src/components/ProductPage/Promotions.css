@@ -1,0 +1,222 @@
+/* Promotions.css */
+
+/* --- (لا تغيير في ملاحظات الخطوط والأيقونات وقواعد promo و promo_container و promo_left) --- */
+.promo {
+  background: #fff;
+  padding: 60px 80px;
+  max-width: 1400px;
+  margin: 40px auto;
+}
+.promo_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+.promo_left {
+  flex: 0 0 420px;
+  max-width: 420px;
+  background: white;
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+.promo_left h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+.promo_left p {
+  font-size: 14px;
+  color: #6b6b6b;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+.promo_left .btn {
+  display: inline-block;
+  padding: 14px 45px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 35px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.promo_left .btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.promo_left h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #d63031;
+}
+.promo_left .countdown2 {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.promo_left .countdown2 div {
+  text-align: center;
+  min-width: 70px;
+}
+.promo_left .countdown2 span {
+  font-family: "Digital-7", monospace;
+  font-size: 45px;
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 15px 10px;
+  display: block;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  color: #333333;
+  line-height: 1;
+}
+.promo_left .countdown p {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0;
+}
+
+/* الجزء الأيمن - الكاروسيل (تم تحديث الأنماط بالكامل) */
+.promo_right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-width: 0; /* إصلاح لمشاكل الـ flexbox */
+}
+
+/* 1. الـ Viewport: هذا هو الإطار الذي نرى من خلاله، ويقوم بإخفاء باقي الصور */
+.carousel-viewport {
+  width: 100%;
+  overflow: hidden; /* أهم خاصية هنا! تخفي كل ما يخرج عن الإطار */
+}
+
+/* 2. الـ Wrapper: هذا هو الشريط الطويل الذي يحتوي على كل الصور ويتحرك */
+.carousel-wrapper {
+  display: flex; /* يجعل كل الصور في صف واحد */
+  transition: transform 0.5s ease-in-out; /* حركة سلسة عند التنقل */
+}
+
+/* 3. الـ Item: كل صورة في الكاروسيل */
+.promo_item {
+  position: relative;
+  /* أهم خاصية هنا! تضمن أن كل عنصر يأخذ ثلث المساحة ولا ينزل لسطر جديد */
+  flex: 0 0 calc(100% / 3);
+  box-sizing: border-box; /* لضمان حساب الحجم بشكل صحيح */
+  padding: 0 10px; /* هذا يخلق مسافة بين الصور تشبه الـ gap */
+}
+
+.promo_item:first-child {
+  padding-left: 0;
+}
+.promo_item:last-child {
+  padding-right: 0;
+}
+
+.promo_item img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 450px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.promo_item:hover img {
+  transform: scale(1.05);
+}
+
+.discount {
+  position: absolute;
+  bottom: 20px;
+  left: 20px; /* سيتم ضبطه تلقائياً بسبب الـ padding */
+  right: 20px;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discount p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 5px 0;
+}
+.discount h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+}
+
+/* --- (لا تغيير في أزرار التحكم والنقاط) --- */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.carousel-btn:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+}
+.dot.active {
+  background: #333;
+}
+
+/* --- (لا تغيير في التصميم المتجاوب) --- */
+@media (max-width: 1200px) {
+  .promo_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .promo_left {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+/* ... باقي التصميم المتجاوب ... */
