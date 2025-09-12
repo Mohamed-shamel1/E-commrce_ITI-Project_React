@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 
-// --- (لا تغيير في استيراد الأيقونات والصور) ---
 import image1 from "../../../public/summer.png.jpg";
-import image2 from "../../../public/images3.jpg";
+import image2 from "../../../public/tender-smiling-lady-is-walking-street-posing-casual-modern-coat-hat.jpg";
 import image3 from "../../../public/pexels-postiglioni-852860.jpg";
 import image4 from "../../../public/pexels-anastasiya-gepp-654466-2065200.jpg";
 
@@ -26,12 +25,10 @@ const Promotions = () => {
     },
     { id: 3, img: image3, collection: "Weekend Casuals", discount: "20% OFF" },
     { id: 4, img: image4, collection: "Elegant Evening", discount: "35% OFF" },
-    // يمكنك إضافة المزيد من الصور هنا وستعمل بشكل صحيح
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // --- (لا تغيير في منطق المؤقت الزمني useEffect) ---
   const [timeLeft, setTimeLeft] = useState({
     days: 2,
     hours: 5,
@@ -66,7 +63,6 @@ const Promotions = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  // منطق التنقل الجديد - أصبح أبسط
   const itemsToShow = 3;
   const maxIndex = promos.length - itemsToShow;
 
@@ -78,7 +74,6 @@ const Promotions = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  // هذا هو الـ style الذي سيحرك الكاروسيل
   const carouselStyle = {
     transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
   };
@@ -86,7 +81,6 @@ const Promotions = () => {
   return (
     <section className="promo">
       <div className="promo_container">
-        {/* --- (الجزء الأيسر لم يتغير) --- */}
         <div className="promo_left">
           <h2>People Also Loved</h2>
           <p>
@@ -115,16 +109,12 @@ const Promotions = () => {
           </div>
         </div>
 
-        {/* الجزء الأيمن - الكاروسيل (تم تحديثه) */}
         <div className="promo_right">
-          {/* هذا العنصر الجديد وظيفته إخفاء الصور الزائدة */}
           <div className="carousel-viewport">
-            {/* هذا العنصر يحتوي على كل الصور ويتحرك بالـ transform */}
             <div className="carousel-wrapper" style={carouselStyle}>
               {promos.map((promo) => (
                 <div key={promo.id} className="promo_item">
                   <img src={promo.img} alt={promo.collection} />
-                  {/* يتم عرض الخصم دائماً ويمكنك تعديل المنطق إذا أردت */}
                   {promo.discount && (
                     <div className="discount">
                       <p>
@@ -138,7 +128,6 @@ const Promotions = () => {
             </div>
           </div>
 
-          {/* أزرار التحكم لم تتغير */}
           <div className="carousel-controls">
             <button
               className="carousel-btn"

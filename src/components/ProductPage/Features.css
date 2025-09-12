@@ -50,3 +50,37 @@
   font-size: 14px;
   color: #666;
 }
+@media (max-width: 992px) {
+  .features_container {
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .feature {
+
+    flex-basis: 45%;
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .features {
+    padding: 30px 20px;
+  }
+
+  .features_container {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .feature {
+    width: 100%;
+    justify-content: flex-start;
+    flex-basis: auto;
+  }
+}

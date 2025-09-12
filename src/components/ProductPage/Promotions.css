@@ -104,25 +104,22 @@
   min-width: 0; /* إصلاح لمشاكل الـ flexbox */
 }
 
-/* 1. الـ Viewport: هذا هو الإطار الذي نرى من خلاله، ويقوم بإخفاء باقي الصور */
 .carousel-viewport {
   width: 100%;
-  overflow: hidden; /* أهم خاصية هنا! تخفي كل ما يخرج عن الإطار */
+  overflow: hidden;
 }
 
-/* 2. الـ Wrapper: هذا هو الشريط الطويل الذي يحتوي على كل الصور ويتحرك */
 .carousel-wrapper {
   display: flex; /* يجعل كل الصور في صف واحد */
   transition: transform 0.5s ease-in-out; /* حركة سلسة عند التنقل */
 }
 
-/* 3. الـ Item: كل صورة في الكاروسيل */
+
 .promo_item {
   position: relative;
-  /* أهم خاصية هنا! تضمن أن كل عنصر يأخذ ثلث المساحة ولا ينزل لسطر جديد */
   flex: 0 0 calc(100% / 3);
-  box-sizing: border-box; /* لضمان حساب الحجم بشكل صحيح */
-  padding: 0 10px; /* هذا يخلق مسافة بين الصور تشبه الـ gap */
+  box-sizing: border-box; 
+  padding: 0 10px;
 }
 
 .promo_item:first-child {

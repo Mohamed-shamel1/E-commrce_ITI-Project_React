@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import "../../styles/auth.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate();
@@ -50,7 +53,7 @@ const ForgotPasswordPage = () => {
       <div className="auth-image">
         <div className="image-overlay">
           <div className="brand-logo">
-            <h1>EPROVA</h1>
+            <h1>FASCO</h1>
           </div>
         </div>
       </div>
@@ -62,11 +65,12 @@ const ForgotPasswordPage = () => {
           </div>
           <div className="social-buttons">
             <button className="social-btn google-btn" onClick={() => handleSocialLogin("Google")}>
-              <i className="fab fa-google social-icon"></i>
+                    <FontAwesomeIcon icon={faGoogle} className="social-icon" />
               <span>Sign in with Google</span>
             </button>
             <button className="social-btn email-btn" onClick={() => handleSocialLogin("Email")}>
-              <i className="fas fa-envelope social-icon"></i>
+      <FontAwesomeIcon icon={faEnvelope} className="social-icon" />
+
               <span>Sign in with Email</span>
             </button>
           </div>
@@ -91,7 +95,7 @@ const ForgotPasswordPage = () => {
           </div>
         </div>
         <div className="auth-footer">
-          <p>EPROVA Terms & Conditions</p>
+          <p>FASCO Terms & Conditions</p>
         </div>
       </div>
     </div>

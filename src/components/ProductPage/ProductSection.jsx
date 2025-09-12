@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
-import "./ProductSection.css";
+import "./ProductSection.css"; // Assuming CSS is handled globally or in a different structure
 
-// تأكد من صحة هذه المسارات في مشروعك المحلي
-import brandLogo from "../../assets/Logo-removebg-preview.png";
-import visaImg from "../../assets/Visa.jpg";
-import masterCardImg from "../../assets/masterCard.jpg";
-import mainImgSrc from "../../assets/p1.jpg";
-import thumb1 from "../../assets/dom-hill-JqZlSnI2ctA-unsplash.jpg";
-import thumb2 from "../../assets/pexels-kowalievska-1381556.jpg";
-import thumb3 from "../../assets/dom-hill-nimElTcTNyY-unsplash.jpg";
-import thumb4 from "../../assets/pexels-minan1398-1163194.jpg";
+const brandLogo = "/public/image (4).png";
+const visaImg = "/public/Visa.jpg";
+const masterCardImg = "/public/masterCard.jpg";
+const mainImgSrc = "/public/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg";
+const thumb1 = "/public/pexels-frendsmans-1926769.jpg";
+const thumb2 = "/public/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
+const thumb3 = "/public/pexels-godisable-jacob-226636-794062.jpg";
+const thumb4 = "/public/pexels-godisable-jacob-226636-914668.jpg";
+
+import { useCart } from "../../contexts/CartContext"; // Corrected path assumption
 
 const ProductSection = () => {
+  const { addToCart } = useCart();
+
   const [selectedImg, setSelectedImg] = useState(mainImgSrc);
   const [selectedSize, setSelectedSize] = useState("M");
   const [selectedColor, setSelectedColor] = useState("Blue");
   const [quantity, setQuantity] = useState(1);
-  
+  const [isToastVisible, setIsToastVisible] = useState(false);
+
   const [timeLeft, setTimeLeft] = useState({
     days: 2,
     hours: 6,
-    minutes: 1, // تم تعديل الدقائق لتكون متطابقة مع الصورة
-    seconds: 32, // تم تعديل الثواني
+    minutes: 1,
+    seconds: 32,
   });
 
   const thumbs = [thumb1, thumb2, thumb3, thumb4];
@@ -51,6 +55,29 @@ const ProductSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (isToastVisible) {
+      const timer = setTimeout(() => {
+        setIsToastVisible(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isToastVisible]);
+
+  const handleAddToCart = () => {
+    const productToAdd = {
+        id: `denim-jacket-${selectedColor.toLowerCase()}-${selectedSize.toLowerCase()}`,
+        name: "Denim Jacket",
+        price: 39.00,
+        image: mainImgSrc, // Use the main image for the cart
+        quantity: quantity,
+        color: selectedColor,
+        size: selectedSize,
+    };
+    addToCart(productToAdd);
+    setIsToastVisible(true);
+  };
+
   const formatTime = (num) => String(num).padStart(2, "0");
 
   return (
@@ -63,7 +90,7 @@ const ProductSection = () => {
                 key={idx}
                 src={thumb}
                 alt={`Product thumbnail ${idx + 1}`}
-                className="thumb"
+                className={`thumb ${selectedImg === thumb ? "active" : ""}`}
                 onClick={() => setSelectedImg(thumb)}
               />
             ))}
@@ -86,43 +113,39 @@ const ProductSection = () => {
           </div>
 
           <div className="meta">
-            <i className="fa-regular fa-eye"></i>
+            <span role="img" aria-label="eye icon">👁️</span>
             <span>24 people are viewing this right now</span>
           </div>
 
-          {/* START: UPDATED COUNTDOWN JSX */}
           <div className="countdown1">
-      {/* العداد */}
-      <div className="countdown-row">
-        <div className="countdown-header">
-          ⏰ Hurry up! Sale ends in:
-        </div>
-        <div className="timer-group">
-          <div className="time-part">
-            <span className="time-value">{formatTime(timeLeft.days)}</span>
-            <span className="time-label">Days</span>
+            <div className="countdown-row">
+              <div className="countdown-header">
+                ⏰ Hurry up! Sale ends in:
+              </div>
+              <div className="timer-group">
+                <div className="time-part">
+                  <span className="time-value">{formatTime(timeLeft.days)}</span>
+                  <span className="time-label">Days</span>
+                </div>
+                <div className="time-part">
+                  <span className="time-value">{formatTime(timeLeft.hours)}</span>
+                  <span className="time-label">Hours</span>
+                </div>
+                <div className="time-part">
+                  <span className="time-value">{formatTime(timeLeft.minutes)}</span>
+                  <span className="time-label">Minutes</span>
+                </div>
+                <div className="time-part">
+                  <span className="time-value">{formatTime(timeLeft.seconds)}</span>
+                  <span className="time-label">Seconds</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="time-part">
-            <span className="time-value">{formatTime(timeLeft.hours)}</span>
-            <span className="time-label">Hours</span>
-          </div>
-          <div className="time-part">
-            <span className="time-value">{formatTime(timeLeft.minutes)}</span>
-            <span className="time-label">Minutes</span>
-          </div>
-          <div className="time-part">
-            <span className="time-value">{formatTime(timeLeft.seconds)}</span>
-            <span className="time-label">Seconds</span>
-          </div>
-        </div>
-      </div>
-    </div>
-          {/* END: UPDATED COUNTDOWN JSX */}
-
 
           <div className="stock_text">Only {totalStock} item(s) left in stock!</div>
           <div className="stock_bar">
-            <div className="fill" style={{ width: `25%` }}></div>
+            <div className="fill" style={{ width: `${(totalStock / 20) * 100}%` }}></div>
           </div>
 
           <div className="sizes">
@@ -164,41 +187,47 @@ const ProductSection = () => {
                 <input type="text" value={quantity} readOnly />
                 <button onClick={() => setQuantity((q) => Math.min(totalStock, q + 1))}>+</button>
               </div>
-              <a href="#" className="buy_btn">
+              <button onClick={handleAddToCart} className="buy_btn2">
                 Add to Cart
-              </a>
+              </button>
             </div>
           </div>
           
           <div className="extra_info">
             <div className="actions">
-              <span><i className="fa-solid fa-code-compare"></i> Compare</span>
-              <span><i className="fa-regular fa-circle-question"></i> Ask a question</span>
-              <span><i className="fa-solid fa-share-nodes"></i> Share</span>
+                <span><span role="img" aria-label="compare icon">🔄</span> Compare</span>
+                <span><span role="img" aria-label="question icon">❓</span> Ask a question</span>
+                <span><span role="img" aria-label="share icon">🔗</span> Share</span>
             </div>
 
             <div className="delivery">
-              <p>
-                <i className="fa-solid fa-truck"></i>
-                <strong>Estimated Delivery:</strong> Jul 30 - Aug 03
-              </p>
-              <p>
-                <i className="fa-solid fa-box"></i>
-                <strong>Free Shipping & Returns:</strong> On all orders over $75
-              </p>
+                <p>
+                    <span role="img" aria-label="truck icon">🚚</span>
+                    <strong> Estimated Delivery:</strong> Jul 30 - Aug 03
+                </p>
+                <p>
+                    <span role="img" aria-label="box icon">📦</span>
+                    <strong> Free Shipping & Returns:</strong> On all orders over $75
+                </p>
             </div>
 
             <div className="payment">
-              <img src={visaImg} alt="Visa" />
-              <img src={masterCardImg} alt="Mastercard" />
+                <img src={visaImg} alt="Visa" />
+                <img src={masterCardImg} alt="Mastercard" />
             </div>
 
             <p className="guarantee">✅ Guarantee safe & secure checkout</p>
           </div>
         </div>
       </section>
+
+      <div id="cart-toast" className={`cart-toast ${isToastVisible ? "show" : ""}`}>
+        <span role="img" aria-label="check icon" style={{ marginRight: '8px' }}>✔️</span>
+        <span>Product added to cart!</span>
+      </div>
     </>
   );
 };
 
 export default ProductSection;
+

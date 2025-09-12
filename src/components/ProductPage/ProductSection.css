@@ -247,6 +247,7 @@
   display: inline-block;
   padding: 12px 28px;
   background: #c0392b;
+  width: 100%;
   color: #fff;
   border-radius: 10px;
   font-size: 16px;
@@ -256,6 +257,18 @@
 }
 .buy_btn:hover {
   background: #a93226;
+}
+.buy_btn2{
+  display: inline-block;
+  padding: 1px 15px !important;
+  background: #c0392b !important;
+  width: 40% !important;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
 }
 .extra_info {
   margin-top: 20px;

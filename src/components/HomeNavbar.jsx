@@ -12,7 +12,6 @@ const HomeNavbar = () => {
   const location = useLocation();
   const { cartCount, setIsCartOpen } = useCart();
   
-  // Sample wishlist data
   const wishlistCount = 2;
 
   const toggleMenu = () => {

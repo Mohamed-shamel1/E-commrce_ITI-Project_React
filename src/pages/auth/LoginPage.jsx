@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import "../../styles/auth.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -31,7 +34,6 @@ const LoginPage = () => {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      // success demo
       alert("Login successful! (This is a demo)");
     } catch (err) {
       alert("Login failed. Please try again.");
@@ -49,23 +51,24 @@ const LoginPage = () => {
       <div className="auth-image">
         <div className="image-overlay">
           <div className="brand-logo">
-            <h1>EPROVA</h1>
+            <h1>FASCO</h1>
           </div>
         </div>
       </div>
       <div className="auth-form">
         <div className="form-container">
           <div className="form-header">
-            <h2>Sign In To EPROVA</h2>
+            <h2>Sign In To FASCO</h2>
             <p>Welcome back! Please enter your details.</p>
           </div>
           <div className="social-buttons">
             <button className="social-btn google-btn" onClick={() => handleSocialLogin("Google")}>
-              <i className="fab fa-google social-icon"></i>
+                    <FontAwesomeIcon icon={faGoogle} className="social-icon" />
               <span>Sign in with Google</span>
             </button>
             <button className="social-btn email-btn" onClick={() => handleSocialLogin("Email")}>
-              <i className="fas fa-envelope social-icon"></i>
+      <FontAwesomeIcon icon={faEnvelope} className="social-icon" />
+
               <span>Sign in with Email</span>
             </button>
           </div>
@@ -102,7 +105,7 @@ const LoginPage = () => {
           </div>
         </div>
         <div className="auth-footer">
-          <p>EPROVA Terms & Conditions</p>
+          <p>FASCO Terms & Conditions</p>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import HomeNavbar from "./components/HomeNavbar.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -13,6 +14,7 @@ import SignupPage from "./pages/auth/SignupPage.jsx";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
+import Loader from "./components/Loader.jsx";
 
 function App() {
   const location = useLocation();
@@ -22,17 +24,38 @@ function App() {
     location.pathname === "/signup" ||
     location.pathname === "/forgot-password";
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
     <AuthProvider>
       <CartProvider>
         <div className="min-h-screen flex flex-col w-full">
-          {/* Show NavBar only if not an auth page */}
+          {loading && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/70 backdrop-blur-sm">
+              <Loader />
+            </div>
+          )}
+
           {!isAuthPage && (isHomePage ? <HomeNavbar /> : <Navbar />)}
 
           <div className="flex-1">
             <Routes>
               <Route path="/products" element={<ProductPage />} />
-
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
@@ -44,9 +67,7 @@ function App() {
             </Routes>
           </div>
 
-          {/* Show Footer only if not an auth page */}
           {!isAuthPage && <Footer />}
-
           <ShoppingCartModal />
         </div>
       </CartProvider>

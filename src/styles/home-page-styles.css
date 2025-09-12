@@ -604,6 +604,8 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+  background-color: white;
+  color: black;
 }
 
 .nl-newsletter button {

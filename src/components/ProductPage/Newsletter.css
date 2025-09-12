@@ -1,21 +1,20 @@
 .newsletter_container {
-  max-width: 1200px;
+  max-width: 90%;
   margin: 60px auto;
   display: flex;
-  align-items: center;
+  align-items: center; /* لتوسيط العناصر عمودياً وأفقياً عند التكديس */
   justify-content: space-between;
   gap: 20px;
   background-color: #fff;
-}
-.newsletter_img img {
-  max-width: 250px;
-  border-radius: 10px;
+  /* padding: 0 20px; */
 }
 
 .newsletter_section {
   flex: 1;
   text-align: center;
+  padding: 0 10px;
 }
+
 .newsletter_section h2 {
   font-size: 28px;
   margin-bottom: 12px;
@@ -54,18 +53,68 @@
   cursor: pointer;
   font-size: 16px;
   transition: 0.3s ease;
-  color: #fff;
 }
+
 .newsletter_form button:hover {
   background: #333;
 }
-.newsletter_img{
+
+.newsletter_img {
   position: relative;
   flex: 1;
   text-align: center;
+  max-width: 350px;
+  width: 100%; /* لجعل الحاوية تستجيب بشكل أفضل */
 }
-.newsletter_img img{
-  max-width: 400px;
-  border-radius: 10px;
 
+.newsletter_img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+
+/* =================================== */
+/* =======  Responsive Design  ======= */
+/* =================================== */
+
+/* للأجهزة اللوحية والهواتف (Tablets & Mobile) */
+@media (max-width: 992px) {
+  .newsletter_container {
+    /* هذا هو التغيير الأساسي: نحول التخطيط إلى عمودي */
+    flex-direction: column;
+    gap: 40px; /* نزيد المسافة لتكون رأسية بين العناصر */
+  }
+
+  .newsletter_section {
+    width: 100%;
+    /* يمكن تحديد عرض أقصى للمحتوى حتى لا يبدو ممتدًا بشكل كبير على الأجهزة اللوحية */
+    max-width: 600px;
+    /* الترتيب سيأتي بشكل طبيعي (صورة، محتوى، صورة) بناءً على ترتيب العناصر في JSX */
+  }
+}
+
+
+/* للهواتف (Mobile Phones) */
+@media (max-width: 600px) {
+  .newsletter_container {
+    margin: 40px auto;
+    padding: 0 15px;
+    gap: 30px; /* تقليل المسافة العمودية لتناسب الشاشات الأصغر */
+  }
+
+  .newsletter_section h2 {
+    font-size: 24px;
+  }
+
+  .newsletter_section p {
+    font-size: 14px;
+  }
+
+  /* هذا الجزء يبقى كما هو لترتيب الفورم بشكل عمودي */
+  .newsletter_form input,
+  .newsletter_form button {
+    width: 100%;
+  }
 }

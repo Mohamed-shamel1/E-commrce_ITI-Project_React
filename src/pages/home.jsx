@@ -122,7 +122,6 @@ const HomePage = () => {
     '/raamin-ka-74jERQtN1V4-unsplash.jpg'
   ];
 
-  // Countdown timer effect
   useEffect(() => {
     const startCountdown = () => {
       const now = new Date();
@@ -159,7 +158,6 @@ const HomePage = () => {
     return () => clearInterval(countdownInterval);
   }, []);
 
-  // Auto-slide functionality
   useEffect(() => {
     const startAutoSlide = () => {
       autoSlideRef.current = setInterval(() => {
@@ -176,7 +174,6 @@ const HomePage = () => {
     };
   }, [totalSlides]);
 
-  // Update slider transform
   useEffect(() => {
     if (sliderRef.current) {
       const itemWidth = 275; // 250px width + 25px gap
@@ -184,7 +181,6 @@ const HomePage = () => {
     }
   }, [currentIndex]);
 
-  // Update testimonial transform
   useEffect(() => {
     if (testimonialTrackRef.current) {
       testimonialTrackRef.current.style.transform = `translateX(-${testimonialIndex * 100}%)`;

@@ -143,9 +143,9 @@ const ShoppingCartModal = () => {
                       checked={giftWrap}
                       onChange={(e) => setGiftWrap(e.target.checked)}
                       className="w-4 h-4 
-             text-black       /* لون علامة الصح */
-             bg-white         /* خلفية بيضاء */
-             border border-black  /* البوردر أسود */
+             text-black       
+             bg-white         
+             border border-black  
              rounded 
              focus:ring-0 focus:ring-offset-0"
                     />
@@ -170,7 +170,7 @@ const ShoppingCartModal = () => {
 
                 {/* Action Buttons */}
                 <div className="p-6 space-y-3">
-                  <Link 
+                  <Link
                     to="/checkout"
                     className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors block text-center"
                     onClick={() => setIsCartOpen(false)}

@@ -8,9 +8,7 @@ import "./Features.css"; // تأكد من أن المسار صحيح
 
 const Features = () => {
   return (
-    // استخدم <section> بنفس الفئة الموجودة في HTML
     <section className="features">
-      {/* هذا الـ div مهم جداً للتنسيق */}
       <div className="features_container">
         <div className="feature">
           <FontAwesomeIcon icon={faStar} size="2x" />
