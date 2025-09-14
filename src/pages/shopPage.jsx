@@ -218,7 +218,7 @@ useEffect(() => {
  const timer = setTimeout(() => {
   setIsToastVisible(false);
  }, 3000);
- return () => clearTimeout(timer); // تنظيف المؤقت
+ return () => clearTimeout(timer);
  }
 }, [isToastVisible]);
 

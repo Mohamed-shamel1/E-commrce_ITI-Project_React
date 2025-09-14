@@ -23,9 +23,8 @@
 .product_images .thumbs .thumb {
   width: 82px;
   height: 135px;
-  /* نستخدم min-height لضمان عدم انهيار الارتفاع */
   min-height: 90px; 
-  flex-shrink: 0; /* لمنع الصورة من التقلص داخل حاوية flex */
+  flex-shrink: 0;
   background: #eee;
   border: 1px solid #ddd;
   border-radius: 8px;
