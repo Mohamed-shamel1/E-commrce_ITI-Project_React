@@ -1,18 +1,15 @@
 {
   "name": "ecommerce-app",
-  "homepage": "https://Mohamed-shamel1.github.io/E-commrce_ITI-Project_React",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "predeploy": "npm run build",
-  "deploy": "npx gh-pages -d dist -b gh-pages",
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview"
-}
-,
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "vite preview"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

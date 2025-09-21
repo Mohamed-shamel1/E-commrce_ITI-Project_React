@@ -15,7 +15,6 @@ import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
 import Loader from "./components/Loader.jsx";
-import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const location = useLocation();
