@@ -12,7 +12,7 @@ export const Footer = () => {
           <div className="mb-4 md:mb-0">
             <Link to="/" className="flex items-center">
               <img
-                src="/public/image (4).png"
+                src={`${import.meta.env.BASE_URL}product/image (4).png`}
                 alt="FASCO"
                 className="w-8 h-8 mr-2"
               />

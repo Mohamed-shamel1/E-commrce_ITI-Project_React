@@ -364,7 +364,7 @@ const Checkout = () => {
                             <div className="flex items-center gap-4" key={item.id}>
                                 <div className="w-20 h-20 rounded-md overflow-hidden flex-shrink-0 relative">
                                     <img
-                                    src={item.image}
+                                    src={`${import.meta.env.BASE_URL}${item.image}`}
                                     alt={item.name}
                                     className="w-full h-full object-cover"
                                     />

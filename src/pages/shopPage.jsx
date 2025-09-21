@@ -17,7 +17,7 @@ const products = [
  size: ["S", "M", "L", "XL"],
  colors: ["black", "navy", "gray"],
  tags: ["formal", "elegant", "professional"],
- image: "/pexels-kowalievska-1381556.jpg",
+ image: "product/pexels-kowalievska-1381556.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -33,7 +33,7 @@ const products = [
  size: ["S", "M", "L"],
  colors: ["red", "blue", "black"],
  tags: ["elegant", "casual", "summer"],
- image: "/dom-hill-nimElTcTNyY-unsplash.jpg",
+ image: "product/dom-hill-nimElTcTNyY-unsplash.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "Almost Sold Out",
@@ -49,7 +49,7 @@ const products = [
  size: ["M", "L", "XL"],
  colors: ["gray", "black", "white"],
  tags: ["casual", "winter", "comfortable"],
- image: "/pexels-minan1398-1163194.jpg",
+ image: "product/pexels-minan1398-1163194.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -65,7 +65,7 @@ const products = [
  size: ["S", "M", "L", "XL"],
  colors: ["white", "cream"],
  tags: ["elegant", "summer", "formal"],
- image: "/pexels-frendsmans-1926769.jpg",
+ image: "product/pexels-frendsmans-1926769.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -81,7 +81,7 @@ const products = [
  size: ["S", "M", "L", "XL"],
  colors: ["white", "blue", "pink"],
  tags: ["formal", "casual", "professional"],
- image: "/pexels-olly-974911.jpg",
+ image: "product/pexels-olly-974911.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -97,7 +97,7 @@ const products = [
  size: ["M", "L", "XL"],
  colors: ["black", "gray", "navy"],
  tags: ["casual", "street", "modern"],
- image: "/napat-saeng-mVGW8j9rrC4-unsplash.jpg",
+ image: "product/napat-saeng-mVGW8j9rrC4-unsplash.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "Almost Sold Out",
@@ -113,7 +113,7 @@ const products = [
  size: ["S", "M", "L"],
  colors: ["yellow", "pink", "blue"],
  tags: ["summer", "casual", "light"],
- image: "/pexels-minan1398-1163194.jpg",
+ image: "product/pexels-minan1398-1163194.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -129,7 +129,7 @@ const products = [
  size: ["M", "L", "XL"],
  colors: ["brown", "black", "gray"],
  tags: ["classic", "winter", "formal"],
- image: "/pexels-frendsmans-1926769.jpg",
+ image: "product/pexels-frendsmans-1926769.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -145,7 +145,7 @@ const products = [
  size: ["S", "M", "L", "XL"],
  colors: ["black", "navy", "gray"],
  tags: ["formal", "business", "professional"],
- image: "/p1.jpg",
+ image: "product/p1.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -161,7 +161,7 @@ const products = [
  size: ["S", "M", "L", "XL"],
  colors: ["black", "gray", "white"],
  tags: ["casual", "comfortable", "sport"],
- image: "/pexels-olly-974911.jpg",
+ image: "product/pexels-olly-974911.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -177,7 +177,7 @@ const products = [
  size: ["one-size"],
  colors: ["brown", "black", "tan"],
  tags: ["luxury", "elegant", "fashion"],
- image: "/pexels-godisable-jacob-226636-914668.jpg",
+ image: "product/pexels-godisable-jacob-226636-914668.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "Almost Sold Out",
@@ -193,7 +193,7 @@ const products = [
  size: ["one-size"],
  colors: ["silver", "gold", "black"],
  tags: ["premium", "elegant", "gentleman"],
- image: "/pexels-aizhana-aldanova-364644-983564.jpg",
+ image: "product/pexels-aizhana-aldanova-364644-983564.jpg",
  reviews: 4.1,
  reviewCount: 4100,
  stock: "In Stock",
@@ -439,7 +439,7 @@ return (
    {products.map((product) => (
    <div className="product-card" key={product.id}>
     <div className="product-image">
-    <img src={product.image} alt={product.name} loading="lazy" />
+    <img src={`${import.meta.env.BASE_URL}${product.image }`}alt={product.name} loading="lazy" />
     <div className="product-overlay">
      <button className="quick-view-btn">Quick View</button>
     </div>
@@ -489,29 +489,29 @@ return (
   </p>
   <div className="row gallery">
   <div className="col-s-2 col-2">
-   <img src="/nicole-geri-Eb1mX9ds7sc-unsplash.jpg" alt="Model 1" />
+   <img src={`${import.meta.env.BASE_URL}product/nicole-geri-Eb1mX9ds7sc-unsplash.jpg`} alt="Model 1" />
   </div>
   <div className="col-s-2 col-2">
-   <img src="/dom-hill-JqZlSnI2ctA-unsplash.jpg" alt="Model 2" />
+   <img src={`${import.meta.env.BASE_URL}product/dom-hill-JqZlSnI2ctA-unsplash.jpg`} alt="Model 2" />
   </div>
   <div className="col-s-2 col-2">
    <img
-   src="/napat-saeng-mVGW8j9rrC4-unsplash.jpg"
+   src={`${import.meta.env.BASE_URL}product/napat-saeng-mVGW8j9rrC4-unsplash.jpg`}
    alt="Black Dress"
    />
   </div>
   <div className="col-s-2 col-2">
    <img
-   src="/pexels-godisable-jacob-226636-914668.jpg"
+   src={`${import.meta.env.BASE_URL}product/pexels-godisable-jacob-226636-914668.jpg`}
    alt="Elegant Blazer"
    />
   </div>
   <div className="col-s-2 col-2">
-   <img src="/p1.jpg" alt="Summer Dress" />
+   <img src={`${import.meta.env.BASE_URL}product/p1.jpg`} alt="Summer Dress" />
   </div>
   <div className="col-s-2 col-2">
    <img
-   src="/raamin-ka-74jERQtN1V4-unsplash.jpg"
+   src={`${import.meta.env.BASE_URL}product/raamin-ka-74jERQtN1V4-unsplash.jpg`}
    alt="Fashion Hoodie"
    />
   </div>

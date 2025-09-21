@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./ProductSection.css"; // Assuming CSS is handled globally or in a different structure
 
-const brandLogo = "/public/image (4).png";
-const visaImg = "/public/Visa.jpg";
-const masterCardImg = "/public/masterCard.jpg";
-const mainImgSrc = "/public/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg";
-const thumb1 = "/public/pexels-frendsmans-1926769.jpg";
-const thumb2 = "/public/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
-const thumb3 = "/public/pexels-godisable-jacob-226636-794062.jpg";
-const thumb4 = "/public/pexels-godisable-jacob-226636-914668.jpg";
+const brandLogo = "product/image (4).png";
+const visaImg = "product/Visa.jpg";
+const masterCardImg = "product/masterCard.jpg";
+const mainImgSrc = "product/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg";
+const thumb1 = "product/pexels-frendsmans-1926769.jpg";
+const thumb2 = "product/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
+const thumb3 = "product/pexels-godisable-jacob-226636-794062.jpg";
+const thumb4 = "product/pexels-godisable-jacob-226636-914668.jpg";
 
 import { useCart } from "../../contexts/CartContext"; // Corrected path assumption
 
@@ -88,18 +88,18 @@ const ProductSection = () => {
             {thumbs.map((thumb, idx) => (
               <img
                 key={idx}
-                src={thumb}
+                src={`${import.meta.env.BASE_URL}${thumb}`}
                 alt={`Product thumbnail ${idx + 1}`}
                 className={`thumb ${selectedImg === thumb ? "active" : ""}`}
                 onClick={() => setSelectedImg(thumb)}
               />
             ))}
           </div>
-          <img src={selectedImg} alt="Main product" className="main_img" />
+          <img src={`${import.meta.env.BASE_URL}${selectedImg}`} alt="Main product" className="main_img" />
         </div>
 
         <div className="product_details">
-          <img className="brand" src={brandLogo} alt="Brand logo" />
+          <img className="brand" src={`${import.meta.env.BASE_URL}${brandLogo}`} alt="Brand logo" />
           <h2>Denim Jacket</h2>
 
           <div className="rating">
@@ -212,8 +212,8 @@ const ProductSection = () => {
             </div>
 
             <div className="payment">
-                <img src={visaImg} alt="Visa" />
-                <img src={masterCardImg} alt="Mastercard" />
+                <img src={`${import.meta.env.BASE_URL}${visaImg}`} alt="Visa" />
+                <img src={`${import.meta.env.BASE_URL}${masterCardImg}`} alt="Mastercard" />
             </div>
 
             <p className="guarantee">✅ Guarantee safe & secure checkout</p>

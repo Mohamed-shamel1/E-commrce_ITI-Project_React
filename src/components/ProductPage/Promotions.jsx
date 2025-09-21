@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 
-import image1 from "../../../public/summer.png.jpg";
-import image2 from "../../../public/tender-smiling-lady-is-walking-street-posing-casual-modern-coat-hat.jpg";
-import image3 from "../../../public/pexels-postiglioni-852860.jpg";
-import image4 from "../../../public/pexels-anastasiya-gepp-654466-2065200.jpg";
+import image1 from "../../assets/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg";
+import image2 from "../../assets/tender-smiling-lady-is-walking-street-posing-casual-modern-coat-hat.jpg";
+import image3 from "../../assets/pexels-postiglioni-852860.jpg";
+import image4 from "../../assets/pexels-anastasiya-gepp-654466-2065200.jpg";
 
 const Promotions = () => {
   const promos = [

@@ -904,7 +904,7 @@ body {
 
 @media (max-width: 1024px) {
   .deal-section {
-      flex-direction: column;
+      /* flex-direction: column; */
       gap: 30px;
       padding: 40px 25px;
   }

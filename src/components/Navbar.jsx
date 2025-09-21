@@ -52,7 +52,7 @@ export default function Navbar() {
                   </IconButton>
                   <Link to="/" className="flex items-center">
                     <img
-                      src="/image (4).png"
+                      src={`${import.meta.env.BASE_URL}product/image (4).png`}
                       alt="FASCO"
                       className="w-10 h-10"
                     />
@@ -157,6 +157,7 @@ export default function Navbar() {
                 onClick={() => setIsDrawerOpen(false)}
                 component={Link}
                 to={`/${item.toLowerCase()}`}
+                className="text-black hover:bg-gray-100 transition-colors"
               >
                 <ListItemText primary={item} />
               </ListItem>

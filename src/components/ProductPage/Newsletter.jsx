@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Newsletter.css";
 
-import leftImg from "/dom-hill-nimElTcTNyY-unsplash.jpg";
-import rightImg from "/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
+import leftImg from "../../assets/dom-hill-nimElTcTNyY-unsplash.jpg";
+import rightImg from "../../assets/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");

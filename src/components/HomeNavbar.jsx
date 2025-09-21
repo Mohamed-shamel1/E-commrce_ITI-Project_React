@@ -33,7 +33,7 @@ const HomeNavbar = () => {
       <div className="flex items-center">
         <Link to="/" className="flex items-center">
           <img
-            src="/public/image (4).png"
+            src={`${import.meta.env.BASE_URL}product/image (4).png`}
             alt="FASCO"
             className="logo-img"
           />

@@ -16,12 +16,12 @@ const HomePage = () => {
   const testimonialTrackRef = useRef(null);
 
   const sliderImages = [
-      '../../public/dom-hill-nimElTcTNyY-unsplash.jpg',
-      '../../public/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg',
-    '.../../public/pexels-godisable-jacob-226636-794062.jpg',
-    '../../public/raamin-ka-74jERQtN1V4-unsplash.jpg',
-    '../../public/p1.jpg',
-    '../../public/portrait-pretty-woman-sunglasses-hat-blue-colorful-wall.jpg'
+      'product/young-european-woman-jeans-plaid-jacket-poses-portrait-beige-wall.jpg',
+      'product/napat-saeng-mVGW8j9rrC4-unsplash.jpg',
+    'product/pexels-godisable-jacob-226636-794062.jpg',
+    'product/raamin-ka-74jERQtN1V4-unsplash.jpg',
+    'product/p1.jpg',
+    'product/portrait-pretty-woman-sunglasses-hat-blue-colorful-wall.jpg'
   ];
 
   const totalSlides = sliderImages.length - 2;
@@ -52,7 +52,7 @@ const HomePage = () => {
 
   const products = [
     {
-      image: '../../public/pexels-kowalievska-1381556.jpg',
+      image: 'product/pexels-kowalievska-1381556.jpg',
       title: 'Shiny Dress',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -62,7 +62,7 @@ const HomePage = () => {
       stock: 'Almost Sold Out'
     },
     {
-      image: '../../public/dom-hill-nimElTcTNyY-unsplash.jpg',
+      image: 'product/dom-hill-nimElTcTNyY-unsplash.jpg',
       title: 'Long Dress',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -72,7 +72,7 @@ const HomePage = () => {
       stock: 'Almost Sold Out'
     },
     {
-      image: '../../public/pexels-minan1398-1163194.jpg',
+      image: 'product/pexels-minan1398-1163194.jpg',
       title: 'Full Sweater',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -82,7 +82,7 @@ const HomePage = () => {
       stock: 'Almost Sold Out'
     },
     {
-      image: '../../public/pexels-frendsmans-1926769.jpg',
+      image: 'product/pexels-frendsmans-1926769.jpg',
       title: 'White Dress',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -92,7 +92,7 @@ const HomePage = () => {
       stock: 'Almost Sold Out'
     },
     {
-      image: '/p1.jpg',
+      image: 'product/p1.jpg',
       title: 'White Dress',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -102,7 +102,7 @@ const HomePage = () => {
       stock: 'Almost Sold Out'
     },
     {
-      image: '/pexels-olly-974911.jpg',
+      image: 'product/pexels-olly-974911.jpg',
       title: 'White Shirt',
       brand: 'Al Karam',
       category: 'All Seasons',
@@ -114,12 +114,12 @@ const HomePage = () => {
   ];
 
   const galleryImages = [
-    '/nicole-geri-Eb1mX9ds7sc-unsplash.jpg',
-    '/dom-hill-JqZlSnI2ctA-unsplash.jpg',
-    '/napat-saeng-mVGW8j9rrC4-unsplash.jpg',
-    '/pexels-godisable-jacob-226636-914668.jpg',
-    '/p1.jpg',
-    '/raamin-ka-74jERQtN1V4-unsplash.jpg'
+    'product/nicole-geri-Eb1mX9ds7sc-unsplash.jpg',
+    'product/dom-hill-JqZlSnI2ctA-unsplash.jpg',
+    'product/napat-saeng-mVGW8j9rrC4-unsplash.jpg',
+    'product/pexels-godisable-jacob-226636-914668.jpg',
+    'product/p1.jpg',
+    'product/raamin-ka-74jERQtN1V4-unsplash.jpg'
   ];
 
   useEffect(() => {
@@ -245,7 +245,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="row hero">
         <div className="col-4 col-s-4 hero-img">
-          <img src="/pexels-postiglioni-852860.jpg" alt="Model 1" />
+          <img src={`${import.meta.env.BASE_URL}product/pexels-postiglioni-852860.jpg`} alt="Model 1" />
         </div>
 
         <div className="col-4 col-s-4 hero-center">
@@ -254,12 +254,12 @@ const HomePage = () => {
           <p>NEW COLLECTION</p>
           <button onClick={() => window.location.href='shop'}>SHOP NOW</button>
           <div className="small-banner">
-            <img src="/pexels-athena-2043590.jpg" alt="Small Banner" />
+            <img src={`${import.meta.env.BASE_URL}product/pexels-athena-2043590.jpg`} alt="Small Banner" />
           </div>
         </div>
 
         <div className="col-4 col-s-4 hero-img">
-          <img src="/pexels-frendsmans-1926769.jpg" alt="Model 2" />
+          <img src={`${import.meta.env.BASE_URL}product/pexels-frendsmans-1926769.jpg`} alt="Model 2" />
         </div>
       </div>
 
@@ -288,7 +288,7 @@ const HomePage = () => {
               onMouseLeave={handleMouseLeave}
             >
               {sliderImages.map((img, index) => (
-                <img key={index} src={img} alt={`Slide ${index + 1}`} />
+                <img key={index} src={`${import.meta.env.BASE_URL}${img}`} alt={`Slide ${index + 1}`} />
               ))}
             </div>
             <button className="slider-btn prev-btn" onClick={() => moveSlide(-1)}>&#10094;</button>
@@ -324,7 +324,7 @@ const HomePage = () => {
         {products.map((product, index) => (
           <div key={index} className="col-s-6 col-4">
             <div className="card" onClick={() => window.location.href='checkout.html'} style={{cursor: 'pointer'}}>
-              <img src={product.image} alt={product.title} />
+              <img src={`${import.meta.env.BASE_URL}${product.image}`} alt={product.title} />
               <div className="card-content">
                 <h3>{product.title}</h3>
                 <div className="brand">{product.brand}</div>
@@ -353,7 +353,7 @@ const HomePage = () => {
         <div className="row gallery">
           {galleryImages.map((img, index) => (
             <div key={index} className="col-s-2 col-2">
-              <img src={img} alt={`Gallery ${index + 1}`} />
+              <img src={`${import.meta.env.BASE_URL}${img}`} alt={`Gallery ${index + 1}`} />
             </div>
           ))}
         </div>
@@ -369,7 +369,7 @@ const HomePage = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="testimonial-item">
                 <div className="testimonial-card">
-                  <img src={testimonial.image} alt={`Customer ${index + 1}`} />
+                  <img src= {testimonial.image} alt={`Customer ${index + 1}`} />
                   <p>"{testimonial.text}"</p>
                   <div className="stars">{testimonial.stars}</div>
                   <div className="customer-name">{testimonial.name}</div>
@@ -386,7 +386,7 @@ const HomePage = () => {
       {/* Newsletter Section */}
       <div className="nl-row nl-section">
         <div className="col-3 col-s-12 nl-img-box">
-          <img src="/dom-hill-nimElTcTNyY-unsplash.jpg" alt="Male model" />
+          <img src={`${import.meta.env.BASE_URL}product/dom-hill-nimElTcTNyY-unsplash.jpg`} alt="Male model" />
         </div>
 
         <div className="col-6 col-s-12">
@@ -401,7 +401,7 @@ const HomePage = () => {
         </div>
 
         <div className="col-3 col-s-12 nl-img-box">
-          <img src="/oleg-ivanov-QhR78CbFPoE-unsplash.jpg" alt="Female model" />
+          <img src={`${import.meta.env.BASE_URL}product/oleg-ivanov-QhR78CbFPoE-unsplash.jpg`} alt="Female model" />
         </div>
       </div>
     </div>

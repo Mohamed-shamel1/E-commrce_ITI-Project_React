@@ -75,7 +75,7 @@ const ShoppingCartModal = () => {
                         <div className="flex gap-4">
                           <div className="relative">
                             <img
-                              src={item.image}
+                              src={`${import.meta.env.BASE_URL}${item.image}`}
                               alt={item.name}
                               className="w-20 h-20 object-cover rounded-lg"
                             />
