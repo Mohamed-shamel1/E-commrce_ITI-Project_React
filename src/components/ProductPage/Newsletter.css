@@ -2,76 +2,101 @@
   max-width: 90%;
   margin: 60px auto;
   display: flex;
-  align-items: center; /* لتوسيط العناصر عمودياً وأفقياً عند التكديس */
+  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
   background-color: #fff;
-  /* padding: 0 20px; */
+  padding: 40px 20px;
 }
 
 .newsletter_section {
   flex: 1;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .newsletter_section h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.2;
 }
 
 .newsletter_section p {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: #555;
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #666;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .newsletter_form {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .newsletter_form input {
-  padding: 12px 16px;
-  width: 250px;
-  border: 1px solid #ccc;
+  padding: 15px 20px;
+  width: 300px;
+  border: 2px solid #e0e0e0;
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
-  color: #000;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter_form input:focus {
+  outline: none;
+  border-color: #333;
 }
 
 .newsletter_form button {
-  padding: 12px 28px;
-  background: #000;
+  padding: 15px 35px;
+  background: #333;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .newsletter_form button:hover {
-  background: #333;
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .newsletter_img {
   position: relative;
   flex: 1;
   text-align: center;
-  max-width: 350px;
-  width: 100%; /* لجعل الحاوية تستجيب بشكل أفضل */
+  max-width: 400px;
+  width: 100%;
 }
 
 .newsletter_img img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 15px;
   display: block;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.newsletter_img img:hover {
+  transform: scale(1.02);
 }
 
 
@@ -79,42 +104,159 @@
 /* =======  Responsive Design  ======= */
 /* =================================== */
 
-/* للأجهزة اللوحية والهواتف (Tablets & Mobile) */
+/* Large Tablets */
+@media (max-width: 1200px) {
+  .newsletter_container {
+    margin: 50px auto;
+    gap: 35px;
+    padding: 35px 15px;
+  }
+  
+  .newsletter_section h2 {
+    font-size: 28px;
+  }
+  
+  .newsletter_section p {
+    font-size: 16px;
+  }
+  
+  .newsletter_form input {
+    width: 280px;
+  }
+}
+
+/* Tablets */
 @media (max-width: 992px) {
   .newsletter_container {
-    /* هذا هو التغيير الأساسي: نحول التخطيط إلى عمودي */
     flex-direction: column;
-    gap: 40px; /* نزيد المسافة لتكون رأسية بين العناصر */
+    gap: 35px;
+    margin: 40px auto;
+    padding: 30px 20px;
   }
 
   .newsletter_section {
     width: 100%;
-    /* يمكن تحديد عرض أقصى للمحتوى حتى لا يبدو ممتدًا بشكل كبير على الأجهزة اللوحية */
     max-width: 600px;
-    /* الترتيب سيأتي بشكل طبيعي (صورة، محتوى، صورة) بناءً على ترتيب العناصر في JSX */
+    order: 2;
+  }
+  
+  .newsletter_img {
+    order: 1;
+    max-width: 350px;
+  }
+  
+  .newsletter_section h2 {
+    font-size: 26px;
+  }
+  
+  .newsletter_section p {
+    font-size: 15px;
+  }
+  
+  .newsletter_form input {
+    width: 260px;
   }
 }
 
-
-/* للهواتف (Mobile Phones) */
-@media (max-width: 600px) {
+/* Small Tablets */
+@media (max-width: 768px) {
   .newsletter_container {
-    margin: 40px auto;
-    padding: 0 15px;
-    gap: 30px; /* تقليل المسافة العمودية لتناسب الشاشات الأصغر */
+    margin: 35px auto;
+    padding: 25px 15px;
+    gap: 30px;
   }
-
+  
   .newsletter_section h2 {
     font-size: 24px;
   }
-
+  
   .newsletter_section p {
     font-size: 14px;
+    margin-bottom: 20px;
   }
-
-  /* هذا الجزء يبقى كما هو لترتيب الفورم بشكل عمودي */
-  .newsletter_form input,
+  
+  .newsletter_form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .newsletter_form input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  
   .newsletter_form button {
     width: 100%;
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+  
+  .newsletter_img {
+    max-width: 300px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+  .newsletter_container {
+    margin: 30px auto;
+    padding: 20px 10px;
+    gap: 25px;
+  }
+
+  .newsletter_section h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .newsletter_section p {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  .newsletter_form input {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .newsletter_form button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .newsletter_img {
+    max-width: 250px;
+  }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+  .newsletter_container {
+    margin: 25px auto;
+    padding: 15px 8px;
+    gap: 20px;
+  }
+  
+  .newsletter_section h2 {
+    font-size: 20px;
+  }
+  
+  .newsletter_section p {
+    font-size: 12px;
+  }
+  
+  .newsletter_form input {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .newsletter_form button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .newsletter_img {
+    max-width: 200px;
   }
 }

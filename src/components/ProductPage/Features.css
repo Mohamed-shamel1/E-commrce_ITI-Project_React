@@ -8,8 +8,8 @@
 }
 
 .features_container {
-  max-width: 1200px; /* لتحديد أقصى عرض مثل التصميم الأصلي */
-  margin: 0 auto; /* للتوسيط */
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,21 +22,26 @@
   align-items: center;
   gap: 14px;
   flex: 1;
-  /* نزيل الخلفية والـ padding الزائد من هنا */
   background: none;
   padding: 0;
   border-radius: 0;
-  text-align: left; /* نجعله محاذاة لليسار */
+  text-align: left;
+  transition: transform 0.3s ease;
 }
 
 .feature:hover {
-  transform: none; /* نزيل تأثير الـ hover */
+  transform: translateY(-2px);
 }
 
 .feature i {
   font-size: 28px;
   color: #333;
   margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.feature:hover i {
+  color: #c0392b;
 }
 
 .feature h4 {
@@ -44,43 +49,104 @@
   font-weight: 600;
   margin-bottom: 4px;
   color: #222;
+  transition: color 0.3s ease;
+}
+
+.feature:hover h4 {
+  color: #c0392b;
 }
 
 .feature p {
   font-size: 14px;
   color: #666;
+  line-height: 1.5;
 }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .features {
+    padding: 35px 40px;
+  }
+  
+  .features_container {
+    gap: 40px;
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 992px) {
+  .features {
+    padding: 30px 25px;
+  }
+  
   .features_container {
     flex-wrap: wrap;
-
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
   }
 
   .feature {
-
     flex-basis: 45%;
     justify-content: center;
+    min-width: 280px;
   }
 }
 
-
 @media (max-width: 768px) {
   .features {
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
 
   .features_container {
-
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 25px;
+    padding: 0 15px;
   }
 
   .feature {
     width: 100%;
     justify-content: flex-start;
     flex-basis: auto;
+    gap: 12px;
+  }
+  
+  .feature i {
+    font-size: 24px;
+  }
+  
+  .feature h4 {
+    font-size: 16px;
+  }
+  
+  .feature p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 20px 15px;
+  }
+  
+  .features_container {
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .feature {
+    gap: 10px;
+  }
+  
+  .feature i {
+    font-size: 22px;
+  }
+  
+  .feature h4 {
+    font-size: 15px;
+  }
+  
+  .feature p {
+    font-size: 12px;
   }
 }

@@ -1,18 +1,19 @@
 /* Promotions.css */
 
-/* --- (لا تغيير في ملاحظات الخطوط والأيقونات وقواعد promo و promo_container و promo_left) --- */
 .promo {
   background: #fff;
   padding: 60px 80px;
   max-width: 1400px;
   margin: 40px auto;
 }
+
 .promo_container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 60px;
 }
+
 .promo_left {
   flex: 0 0 420px;
   max-width: 420px;
@@ -21,7 +22,14 @@
   padding: 45px 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   text-align: center;
+  transition: transform 0.3s ease;
 }
+
+.promo_left:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+}
+
 .promo_left h2 {
   font-size: 32px;
   font-weight: 700;
@@ -29,6 +37,7 @@
   color: #1a1a1a;
   line-height: 1.2;
 }
+
 .promo_left p {
   font-size: 14px;
   color: #6b6b6b;
@@ -36,6 +45,7 @@
   margin-bottom: 30px;
   padding: 0 10px;
 }
+
 .promo_left .btn {
   display: inline-block;
   padding: 14px 45px;
@@ -51,27 +61,33 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 .promo_left .btn:hover {
   background: #333;
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
+
 .promo_left h3 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 25px;
   color: #d63031;
 }
+
 .promo_left .countdown2 {
   display: flex;
   gap: 15px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
+
 .promo_left .countdown2 div {
   text-align: center;
   min-width: 70px;
 }
+
 .promo_left .countdown2 span {
   font-family: "Digital-7", monospace;
   font-size: 45px;
@@ -84,7 +100,14 @@
   border: 1px solid #e9ecef;
   color: #333333;
   line-height: 1;
+  transition: all 0.3s ease;
 }
+
+.promo_left .countdown2 span:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 .promo_left .countdown p {
   font-size: 14px;
   color: #666666;
@@ -94,26 +117,26 @@
   padding: 0;
 }
 
-/* الجزء الأيمن - الكاروسيل (تم تحديث الأنماط بالكامل) */
+/* Carousel Section */
 .promo_right {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  min-width: 0; /* إصلاح لمشاكل الـ flexbox */
+  min-width: 0;
 }
 
 .carousel-viewport {
   width: 100%;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 .carousel-wrapper {
-  display: flex; /* يجعل كل الصور في صف واحد */
-  transition: transform 0.5s ease-in-out; /* حركة سلسة عند التنقل */
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
-
 
 .promo_item {
   position: relative;
@@ -125,6 +148,7 @@
 .promo_item:first-child {
   padding-left: 0;
 }
+
 .promo_item:last-child {
   padding-right: 0;
 }
@@ -136,6 +160,7 @@
   height: 450px;
   display: block;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .promo_item:hover img {
@@ -145,12 +170,18 @@
 .discount {
   position: absolute;
   bottom: 20px;
-  left: 20px; /* سيتم ضبطه تلقائياً بسبب الـ padding */
+  left: 20px;
   right: 20px;
   background: #fff;
   padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.promo_item:hover .discount {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .discount p {
@@ -158,6 +189,7 @@
   color: #666;
   margin: 0 0 5px 0;
 }
+
 .discount h4 {
   font-size: 20px;
   font-weight: bold;
@@ -165,13 +197,14 @@
   margin: 0;
 }
 
-/* --- (لا تغيير في أزرار التحكم والنقاط) --- */
+/* Carousel Controls */
 .carousel-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
+
 .carousel-btn {
   width: 40px;
   height: 40px;
@@ -186,34 +219,382 @@
   justify-content: center;
   transition: all 0.3s ease;
 }
+
 .carousel-btn:hover {
   background: #555;
   transform: scale(1.1);
 }
+
+.carousel-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .carousel-dots {
   display: flex;
   gap: 8px;
 }
+
 .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #ddd;
-}
-.dot.active {
-  background: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* --- (لا تغيير في التصميم المتجاوب) --- */
+.dot:hover {
+  background: #999;
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: #333;
+  transform: scale(1.3);
+}
+
+/* =================================== */
+/* =======  Responsive Design  ======= */
+/* =================================== */
+
+/* Large Tablets */
 @media (max-width: 1200px) {
+  .promo {
+    padding: 50px 60px;
+  }
+  
+  .promo_container {
+    gap: 50px;
+  }
+  
+  .promo_left {
+    flex: 0 0 380px;
+    max-width: 380px;
+    padding: 40px 35px;
+  }
+  
+  .promo_left h2 {
+    font-size: 28px;
+  }
+  
+  .promo_left .countdown2 span {
+    font-size: 40px;
+    padding: 12px 8px;
+  }
+  
+  .promo_item img {
+    height: 400px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .promo {
+    padding: 40px 40px;
+  }
+  
   .promo_container {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
   }
+  
   .promo_left {
     flex: 0 0 auto;
     width: 100%;
     max-width: 500px;
+    padding: 35px 30px;
+  }
+  
+  .promo_left h2 {
+    font-size: 26px;
+  }
+  
+  .promo_left .countdown2 {
+    gap: 12px;
+  }
+  
+  .promo_left .countdown2 span {
+    font-size: 36px;
+    padding: 10px 6px;
+  }
+  
+  .promo_item {
+    flex: 0 0 calc(100% / 2);
+  }
+  
+  .promo_item img {
+    height: 350px;
+  }
+  
+  .discount {
+    padding: 12px 16px;
+  }
+  
+  .discount h4 {
+    font-size: 18px;
   }
 }
-/* ... باقي التصميم المتجاوب ... */
+
+/* Small Tablets */
+@media (max-width: 768px) {
+  .promo {
+    padding: 30px 25px;
+  }
+  
+  .promo_container {
+    gap: 35px;
+  }
+  
+  .promo_left {
+    padding: 30px 25px;
+  }
+  
+  .promo_left h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .promo_left p {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+  
+  .promo_left .btn {
+    padding: 12px 35px;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .promo_left h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .promo_left .countdown2 {
+    gap: 10px;
+  }
+  
+  .promo_left .countdown2 span {
+    font-size: 32px;
+    padding: 8px 5px;
+  }
+  
+  .promo_left .countdown p {
+    font-size: 12px;
+  }
+  
+  .promo_item img {
+    height: 300px;
+  }
+  
+  .discount {
+    padding: 10px 14px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+  }
+  
+  .discount p {
+    font-size: 12px;
+  }
+  
+  .discount h4 {
+    font-size: 16px;
+  }
+  
+  .carousel-controls {
+    gap: 15px;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+  .promo {
+    padding: 25px 20px;
+  }
+  
+  .promo_container {
+    gap: 30px;
+  }
+  
+  .promo_left {
+    padding: 25px 20px;
+  }
+  
+  .promo_left h2 {
+    font-size: 22px;
+  }
+  
+  .promo_left p {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+  
+  .promo_left .btn {
+    padding: 10px 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+  
+  .promo_left h3 {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  
+  .promo_left .countdown2 {
+    gap: 8px;
+  }
+  
+  .promo_left .countdown2 div {
+    min-width: 60px;
+  }
+  
+  .promo_left .countdown2 span {
+    font-size: 28px;
+    padding: 6px 4px;
+  }
+  
+  .promo_left .countdown p {
+    font-size: 11px;
+  }
+  
+  .promo_item {
+    flex: 0 0 100%;
+    padding: 0 5px;
+  }
+  
+  .promo_item:first-child,
+  .promo_item:last-child {
+    padding: 0 5px;
+  }
+  
+  .promo_item img {
+    height: 250px;
+  }
+  
+  .discount {
+    padding: 8px 12px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+  
+  .discount p {
+    font-size: 11px;
+  }
+  
+  .discount h4 {
+    font-size: 14px;
+  }
+  
+  .carousel-controls {
+    gap: 12px;
+  }
+  
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+  .promo {
+    padding: 20px 15px;
+  }
+  
+  .promo_container {
+    gap: 25px;
+  }
+  
+  .promo_left {
+    padding: 20px 15px;
+  }
+  
+  .promo_left h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .promo_left p {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+  
+  .promo_left .btn {
+    padding: 8px 25px;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .promo_left h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .promo_left .countdown2 {
+    gap: 6px;
+  }
+  
+  .promo_left .countdown2 div {
+    min-width: 50px;
+  }
+  
+  .promo_left .countdown2 span {
+    font-size: 24px;
+    padding: 5px 3px;
+  }
+  
+  .promo_left .countdown p {
+    font-size: 10px;
+  }
+  
+  .promo_item img {
+    height: 200px;
+  }
+  
+  .discount {
+    padding: 6px 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .discount p {
+    font-size: 10px;
+  }
+  
+  .discount h4 {
+    font-size: 12px;
+  }
+  
+  .carousel-controls {
+    gap: 10px;
+  }
+  
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+}

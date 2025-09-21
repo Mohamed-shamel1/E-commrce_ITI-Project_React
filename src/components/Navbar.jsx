@@ -39,30 +39,29 @@ export default function Navbar() {
     <>
       <header>
         <nav className="bg-white">
-          <div className={`transition-all ${isScrolled ? "p-2" : "p-7"}`}>
+          <div className={`transition-all ${isScrolled ? "p-2" : "p-4 sm:p-6 lg:p-7"}`}>
             <div className="mx-auto max-w-screen-xl sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">
                 {/* Left Section */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4">
                   <IconButton
-                    className="block lg:hidden text-gray-600"
+                    className="block xl:hidden text-gray-600 p-1 sm:p-2"
                     onClick={() => setIsDrawerOpen(true)}
                   >
-                    <HiBars3CenterLeft size={20} />
+                    <HiBars3CenterLeft size={18} className="sm:w-5 sm:h-5" />
                   </IconButton>
                   <Link to="/" className="flex items-center">
                     <img
                       src={`${import.meta.env.BASE_URL}product/image (4).png`}
                       alt="FASCO"
-                      className="w-10 h-10"
+                      className="w-8 h-8 sm:w-10 sm:h-10"
                     />
                     <h1
-                      className="text-xl font-bold ml-2"
+                      className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold ml-1 sm:ml-2"
                       style={{
                         fontFamily: "serif",
                         fontWeight: "bold",
                         color: "black",
-                        fontSize: "35px",
                       }}
                     >
                       FASCO
@@ -93,16 +92,16 @@ export default function Navbar() {
                 </ul>
 
                 {/* Right Section */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
                   {/* Wishlist */}
                   <span className="relative inline-block">
                     <div
-                      className="text-black border-2 rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-colors"
+                      className="text-black border-2 rounded-full p-1.5 sm:p-2 cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => alert("Wishlist Clicked")}
                     >
-                      <CiStar size={20} />
+                      <CiStar size={16} className="sm:w-5 sm:h-5" />
                       {wishlistCount > 0 && (
-                        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
                           {wishlistCount}
                         </span>
                       )}
@@ -112,12 +111,12 @@ export default function Navbar() {
                   {/* Shopping Cart */}
                   <span className="relative inline-block">
                     <div
-                      className="text-black border-2 rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-colors"
+                      className="text-black border-2 rounded-full p-1.5 sm:p-2 cursor-pointer hover:bg-gray-100 transition-colors"
                       onClick={() => setIsCartOpen(true)}
                     >
-                      <MdOutlineShoppingBasket size={20} />
+                      <MdOutlineShoppingBasket size={16} className="sm:w-5 sm:h-5" />
                       {cartCount > 0 && (
-                        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
                           {cartCount}
                         </span>
                       )}
@@ -127,9 +126,9 @@ export default function Navbar() {
                   {/* Logout */}
                   <div
                     onClick={() => alert("Logout Clicked")}
-                    className="text-black border-2 rounded-full p-2 cursor-pointer hover:bg-gray-100 transition-colors"
+                    className="text-black border-2 rounded-full p-1.5 sm:p-2 cursor-pointer hover:bg-gray-100 transition-colors"
                   >
-                    <IoMdLogOut size={20} />
+                    <IoMdLogOut size={16} className="sm:w-5 sm:h-5" />
                   </div>
                 </div>
               </div>
