@@ -74,7 +74,7 @@ To run this project locally, follow these simple steps:
 1.  **Clone the repository:**
 
     ```sh
-    git clone <YOUR_REPOSITORY_URL>
+    git clone <E-commrce_ITI-Project_React>
     ```
 
 2.  **Navigate to the project directory:**
