@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/E-commrce_ITI-Project_React">
+  <BrowserRouter >
     <App />
   </BrowserRouter>
 );
